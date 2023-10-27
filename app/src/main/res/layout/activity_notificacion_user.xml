@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NPR">
-
+    tools:context=".NotificacionUserActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,7 +21,7 @@
             app:srcCompat="@android:drawable/ic_media_previous" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/tv_item_notification"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:text="Notificaciones"
@@ -30,19 +29,14 @@
             android:textSize="24dp"
             android:textStyle="bold" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_notificaciones"
+            android:layout_width="match_parent"
+            android:layout_height="217dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Aca se muestran las notificaciones." />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/textView14"
@@ -53,18 +47,10 @@
             android:textSize="22dp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_parada"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Agrega el ID de la parada." />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="208dp" />
 
         <TextView
             android:id="@+id/textView9"
@@ -80,7 +66,7 @@
             android:layout_height="72dp">
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/tv_item_ruta"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="1"
