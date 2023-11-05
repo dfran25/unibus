@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">unabus</string>
+    <string name="hint_latitud" />
+    <string name="hint_longitud" />
 </resources>

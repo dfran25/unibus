@@ -12,3 +12,4 @@ public class Parada extends AppCompatActivity {
         setContentView(R.layout.activity_parada);
     }
 }
+
