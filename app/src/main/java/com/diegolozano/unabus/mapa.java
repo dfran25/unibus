@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,8 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback, Googl
         btncerrarsecion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v){
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(),Login.class);
                 startActivity(intent);
                 finish();
             }

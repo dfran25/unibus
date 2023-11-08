@@ -25,6 +25,7 @@ public class NotificacionUserActivity extends AppCompatActivity {
     NotificacionAdapter myAdapterruta;
     RecyclerView rvRuta;
 
+
       @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,6 +53,7 @@ public class NotificacionUserActivity extends AppCompatActivity {
 
         rvRuta.setAdapter(myAdapterruta);
         rvRuta.setLayoutManager(new GridLayoutManager(this,2));
+
 
 
 
