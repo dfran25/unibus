@@ -19,4 +19,3 @@ public class Lugar {
         return coordenadas;
     }
 }
-
