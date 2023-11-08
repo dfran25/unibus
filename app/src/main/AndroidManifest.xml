@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,8 +16,9 @@
         android:theme="@style/Theme.Unabus"
         tools:targetApi="31">
 
+        <!-- Cambia la actividad de inicio (LAUNCHER) a ".Login" -->
         <activity
-            android:name=".mapa"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,36 +26,17 @@
             </intent-filter>
         </activity>
 
-
+        <!-- Resto de tus actividades -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAnzMoZziUyvWv6RDAT30mRTd9NQpM6FW0" />
-
-        <activity
-            android:name=".Login"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".Register"
-            android:exported="false" />
-        <activity
-            android:name=".NotificacionUserActivity"
-            android:exported="true" />
-        <activity
-            android:name=".Parada"
-            android:exported="false" />
-        <activity
-            android:name=".Ruta"
-            android:exported="false" />
-        <activity
-            android:name=".Adminnoti"
-            android:exported="false" />
-        <activity
-            android:name=".NotificacionAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
+        <activity android:name=".mapa" android:exported="true" />
+        <activity android:name=".Register" android:exported="false" />
+        <activity android:name=".NotificacionUserActivity" android:exported="true" />
+        <activity android:name=".Parada" android:exported="false" />
+        <activity android:name=".Ruta" android:exported="false" />
+        <activity android:name=".Adminnoti" android:exported="false" />
+        <activity android:name=".NotificacionAdapter" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="true" />
     </application>
 </manifest>
