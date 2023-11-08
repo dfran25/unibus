@@ -5,7 +5,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class NotificacionUserActivity extends AppCompatActivity {
 
@@ -22,10 +25,10 @@ public class NotificacionUserActivity extends AppCompatActivity {
     NotificacionAdapter myAdapterruta;
     RecyclerView rvRuta;
 
-
-
-    @Override
+      @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notificacion_user);
         cargarfackedata();
@@ -49,6 +52,7 @@ public class NotificacionUserActivity extends AppCompatActivity {
 
         rvRuta.setAdapter(myAdapterruta);
         rvRuta.setLayoutManager(new GridLayoutManager(this,2));
+
 
 
     }

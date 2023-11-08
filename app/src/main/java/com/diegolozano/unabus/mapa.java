@@ -3,7 +3,10 @@ package com.diegolozano.unabus;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -14,6 +17,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +26,9 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback, Googl
 
     EditText txtLatitud, txtLongitud;
     GoogleMap mMap;
+
+    Button btncerrarsecion,btnnotificacion;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +40,34 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback, Googl
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        btncerrarsecion = findViewById(R.id.btn_cerrar_secion);
+        btnnotificacion = findViewById(R.id.btn_notificaciones);
+
+
+
+        btncerrarsecion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v){
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnnotificacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NotificacionUserActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+        });
+
     }
+
+
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {

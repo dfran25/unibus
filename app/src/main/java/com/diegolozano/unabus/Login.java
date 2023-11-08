@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(),mapa.class);
             startActivity(intent);
             finish();
 
@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 String email, password;
                 email= String.valueOf(editTextEmail.getText());
-                password= String.valueOf(editTextEmail.getText());
+                password= String.valueOf(editTextPassword.getText());
 
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(Login.this,"ingresa un correo",Toast.LENGTH_SHORT).show();
@@ -92,7 +92,7 @@ public class Login extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(),"incio de sesion exitoso",Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(),mapa.class);
                                     startActivity(intent);
                                     finish();
                                 } else {

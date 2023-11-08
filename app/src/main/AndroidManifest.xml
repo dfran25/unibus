@@ -16,7 +16,7 @@
 
         <activity
             android:name=".Login"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -40,13 +40,16 @@
             android:exported="false" />
         <activity
             android:name=".NotificacionAdapter"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
 
         <activity
             android:name=".mapa"
-            android:exported="true">
+            android:exported="false"
+            />
+
             <!-- Elimina el intent-filter de esta actividad -->
-        </activity>
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
