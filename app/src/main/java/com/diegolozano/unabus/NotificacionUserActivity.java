@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class NotificacionUserActivity extends AppCompatActivity {
 
     private String[] localDataSet = new String[3];
@@ -24,6 +26,8 @@ public class NotificacionUserActivity extends AppCompatActivity {
     private String[] localDataSetruta = new String[3];
     NotificacionAdapter myAdapterruta;
     RecyclerView rvRuta;
+
+    Button button2;
 
 
       @Override
@@ -58,6 +62,9 @@ public class NotificacionUserActivity extends AppCompatActivity {
 
 
     }
+     public void goBack(View view){
+          startActivity(new Intent(NotificacionUserActivity.this, mapa.class));
+     }
 
     private void cargarfackedata() {
         localDataSet[0]="Notificacion 1";
