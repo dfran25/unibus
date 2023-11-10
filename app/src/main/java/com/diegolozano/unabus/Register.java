@@ -20,11 +20,18 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.ServerTimestamp;
+import com.google.firestore.v1.WriteResult;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
 
-    EditText editTextEmail,editTextPassword;
+    EditText editTextEmail,editTextPassword,editTextnombre,editTextapellido,editTextanother_password;
     Button buttonReg;
 
     ProgressBar progressBar;
@@ -55,6 +62,9 @@ public class Register extends AppCompatActivity {
         buttonReg = findViewById(R.id.btn_register);
         progressBar = findViewById(R.id.progressBar);
         button= findViewById(R.id.logiNow);
+        editTextnombre= findViewById(R.id.nombre);
+        editTextapellido=findViewById(R.id.apellido);
+        editTextanother_password=findViewById(R.id.another_password);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,9 +79,13 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password;
+                String email, password,nombre,apellido,anoher_password;
+                nombre= String.valueOf(editTextnombre.getText());
+                apellido= String.valueOf(editTextapellido.getText());
+                anoher_password= String.valueOf(editTextanother_password.getText());
                 email= String.valueOf(editTextEmail.getText());
                 password= String.valueOf(editTextPassword.getText());
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
 
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this,"ingresa un correo",Toast.LENGTH_SHORT).show();
@@ -79,6 +93,18 @@ public class Register extends AppCompatActivity {
                 }
                 if (TextUtils.isEmpty(password)) {
                     Toast.makeText(Register.this, "ingresa una contraseña", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(nombre)){
+                    Toast.makeText(Register.this,"ingresa un Nombre",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(apellido)) {
+                    Toast.makeText(Register.this, "ingresa una apellito", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(anoher_password)){
+                    Toast.makeText(Register.this,"Confirma la contraseña",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 mAuth.createUserWithEmailAndPassword(email, password)
@@ -103,6 +129,14 @@ public class Register extends AppCompatActivity {
                             }
 
                         });
+
+                // Add a new document with a generated ID
+                DocumentReference docRef = db.collection("users").document(email);
+                // Add document data with an additional field ("middle")
+                Map<String, Object> data = new HashMap<>();
+
+
+
 
 
             }
