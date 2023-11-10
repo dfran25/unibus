@@ -9,15 +9,10 @@
     <LinearLayout
         android:layout_width="402dp"
         android:layout_height="378dp"
+        android:layout_marginBottom="204dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="-3dp">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/unibus" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/textView5"
@@ -36,14 +31,20 @@
             android:text="notificacion a crear" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_notinot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOTIFI" />
+
+        <Button
+            android:id="@+id/btn_notiparada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#FF9800"
             android:text="Paradas" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btn_notiruta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#FF9800"
@@ -63,12 +64,20 @@
                 android:text="Eliminar" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/btn_volver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#FF9800"
-                android:text="Agregar" />
+                android:text="Volver" />
         </LinearLayout>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/unibus"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="17dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

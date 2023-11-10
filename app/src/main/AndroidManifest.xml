@@ -13,16 +13,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unabus"
         tools:targetApi="31">
-
+        <activity
+            android:name=".CrearNotificacionruta"
+            android:exported="false" />
+        <activity
+            android:name=".CrearNotificacionparada"
+            android:exported="false" />
+        <activity
+            android:name=".CrearNotificacionadmin"
+            android:exported="false" />
         <activity
             android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Register"
             android:exported="false" />
@@ -42,18 +50,12 @@
             android:name=".NotificacionAdapter"
             android:exported="false"
             tools:ignore="Instantiatable" />
-
         <activity
             android:name=".mapa"
-            android:exported="false"
-            />
-
-            <!-- Elimina el intent-filter de esta actividad -->
-
-
+            android:exported="false" /> <!-- Elimina el intent-filter de esta actividad -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAnzMoZziUyvWv6RDAT30mRTd9NQpM6FW0" />
-
     </application>
+
 </manifest>
