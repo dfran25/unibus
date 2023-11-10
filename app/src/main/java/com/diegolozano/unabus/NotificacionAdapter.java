@@ -17,6 +17,11 @@ public class NotificacionAdapter extends RecyclerView.Adapter<NotificacionAdapte
         this.localDataSet = localDataSet;
     }
 
+    public void setLocalDataSet(String[] localDataSet) {
+        this.localDataSet = localDataSet;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public NotificacionAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -88,9 +88,17 @@ public class Login extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(),"incio de sesion exitoso",Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(),mapa.class);
-                                    startActivity(intent);
-                                    finish();
+                                    if (email.equals("correo@correo.com")){
+                                        startActivity(new Intent(Login.this, Adminnoti.class));
+                                        finish();
+                                        return;
+                                    }else{
+                                        Intent intent = new Intent(getApplicationContext(),mapa.class);
+                                        startActivity(intent);
+                                        finish();
+                                        return;
+                                    }
+
                                 } else {
                                     Toast.makeText(Login.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();

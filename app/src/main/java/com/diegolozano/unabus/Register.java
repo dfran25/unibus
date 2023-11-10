@@ -107,12 +107,19 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this,"Confirma la contraseña",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (password!=anoher_password){
+                    Toast.makeText(Register.this,"Contraseña diferente",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+
+                                    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+                                    firestore.collection("usuarios").add(new Usuario(nombre,apellido,email));
 
                                     Toast.makeText(Register.this, "cuenta creada",
                                             Toast.LENGTH_SHORT).show();

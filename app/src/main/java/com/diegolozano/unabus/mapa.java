@@ -17,8 +17,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +33,9 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback, Googl
     EditText txtLatitud, txtLongitud;
     GoogleMap mMap;
 
-    Button btncerrarsecion,btnnotificacion;
+    Button btncerrarsecion, btnnotificacion;
+
+    List<Lugar> lugares = new ArrayList<>();
 
 
     @Override
@@ -46,12 +53,11 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback, Googl
         btnnotificacion = findViewById(R.id.btn_notificaciones);
 
 
-
         btncerrarsecion.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View v){
+            public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(),Login.class);
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 finish();
             }
@@ -70,45 +76,56 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback, Googl
     }
 
 
-
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
-        this.mMap.setOnMapClickListener(this);
-        this.mMap.setOnMapLongClickListener(this);
 
-        // Crear una lista de lugares con sus coordenadas
-        List<Lugar> lugares = new ArrayList<>();
-        lugares.add(new Lugar("Csu", new LatLng(7.112830264451631, -73.10531339503355)));
-        lugares.add(new Lugar("Calle 56 Cra. 46", new LatLng(7.109972486470883, -73.10577979118273)));
-        lugares.add(new Lugar("Calle 45 Cra. 55", new LatLng(7.111296728450606, -73.10605225441464)));
-        lugares.add(new Lugar("Calle 56 Cra. 34", new LatLng(7.110122952762382, -73.10868075556954)));
-        lugares.add(new Lugar("Clinica Bucaramanga", new LatLng(7.111494493991738, -73.10818082102548)));
-        lugares.add(new Lugar("Gratamira", new LatLng(7.116097901716439, -73.10984321813247)));
-        lugares.add(new Lugar("Parque San Pio", new LatLng(7.118723627045239, -73.10956450531071)));
-        lugares.add(new Lugar("Campus Rafael Ardila Duarte", new LatLng(7.1220875794377365, -73.11086788169867)));
-        lugares.add(new Lugar("Calle 48 Cra. 35A", new LatLng(7.117161658980827, -73.10929801550148)));
-        lugares.add(new Lugar("Cra 38 Calle. 49", new LatLng(7.115975918125571, -73.10768383007851)));
-        lugares.add(new Lugar("Unab Jardin", new LatLng(7.116840269614909, -73.10547391439393)));
-        lugares.add(new Lugar("Puente peatonal UNAB-Av. El Jardin", new LatLng(7.11635450545716, -73.10430377070732)));
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore.collection("coordenadas123").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
 
-        // Agregar marcadores para todos los lugares
-        for (Lugar lugar : lugares) {
-            mMap.addMarker(new MarkerOptions()
-                    .position(lugar.getCoordenadas())
-                    .title(lugar.getNombre()));
-        }
+                    mMap.setOnMapClickListener(mapa.this);
+                    mMap.setOnMapLongClickListener(mapa.this);
 
-        // Configurar el listener para manejar el clic en los marcadores
-        mMap.setOnMarkerClickListener(this);
+                    // Crear una lista de lugares con sus coordenadas
 
-        // Ajustar la cámara para mostrar todos los marcadores
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (Lugar lugar : lugares) {
-            builder.include(lugar.getCoordenadas());
-        }
-        LatLngBounds bounds = builder.build();
-        mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 200));
+
+                    for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                        Coordenada coordenada = documentSnapshot.toObject(Coordenada.class);
+                        Lugar newLugar = new Lugar(coordenada.getDireccion(), new LatLng(coordenada.getLatitud(), coordenada.getLongitud()));
+                        lugares.add(newLugar);
+                    }
+
+                    // Agregar marcadores para todos los lugares
+                    for (Lugar lugar : lugares) {
+                        mMap.addMarker(new MarkerOptions()
+                                .position(lugar.getCoordenadas())
+                                .title(lugar.getNombre()));
+                    }
+
+                    // Configurar el listener para manejar el clic en los marcadores
+                    mMap.setOnMarkerClickListener(mapa.this);
+
+                    // Ajustar la cámara para mostrar todos los marcadores
+                    LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                    for (Lugar lugar : lugares) {
+                        builder.include(lugar.getCoordenadas());
+                    }
+                    LatLngBounds bounds = builder.build();
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 200));
+
+
+                }
+            }
+        });
+
+
+
+
+
+
     }
 
     @Override
