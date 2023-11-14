@@ -23,7 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".CrearNotificacionadmin"
-            android:exported="true">
+            android:exported="false">
 
         </activity>
         <activity
@@ -40,16 +40,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".Parada"
             android:exported="false" />
         <activity
-            android:name=".Ruta"
-            android:exported="false" />
-        <activity
             android:name=".Adminnoti"
             android:exported="false" />
+
+
         <activity
             android:name=".NotificacionAdapter"
             android:exported="false"

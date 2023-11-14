@@ -29,11 +29,15 @@ public class NotificacionUserActivity extends AppCompatActivity {
     RecyclerView rvNotificaciones;
 
 
-    private String[] localDataSetparada = new String[3];
+    private String[] localDataSetparada = new String[0];
+
+    private ArrayList<Parada>  localDataSetparadaN = new ArrayList<>();
     NotificacionAdapter myAdapterparada;
     RecyclerView rvParada;
 
-    private String[] localDataSetruta = new String[3];
+    private String[] localDataSetruta = new String[0];
+
+    private ArrayList<Ruta>  localDataSetrutaN = new ArrayList<>();
     NotificacionAdapter myAdapterruta;
     RecyclerView rvRuta;
 
@@ -95,19 +99,61 @@ public class NotificacionUserActivity extends AppCompatActivity {
                 }
 
             }
+
+
         });
     }
 
+        private void cargarfackedata1() {
 
-    private void cargarfackedata1() {
-        localDataSetparada[0] = "Parada 1";
-        localDataSetparada[1] = "Parada 2";
-        localDataSetparada[2] = "Parada 3";
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore.collection("paradas").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()){
+                    for (DocumentSnapshot documentSnapshot:task.getResult()){
+                        Parada myparada = documentSnapshot.toObject(Parada.class);
+                        localDataSetparadaN.add(myparada);
+                    }
+                    String[] dataParada = new String[localDataSetparadaN.size()];
+                    int contador = 0;
+                        for (Parada parada: localDataSetparadaN){
+                        dataParada[contador]=parada.getName();
+                        contador+=1;
+                    }
+                    myAdapterparada.setLocalDataSet(dataParada);
+                }
+
+            }
+
+
+        });
     }
 
     private void cargarfackedata2() {
-        localDataSetruta[0] = "ruta1";
-        localDataSetruta[1] = "ruta2";
-        localDataSetruta[2] = "ruta3";
+
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore.collection("ruta").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()){
+                    for (DocumentSnapshot documentSnapshot:task.getResult()){
+                        Ruta myruta = documentSnapshot.toObject(Ruta.class);
+                        localDataSetrutaN.add(myruta);
+                    }
+                    String[] dataRuta = new String[localDataSetrutaN.size()];
+                    int contador = 0;
+                    for (Ruta ruta  : localDataSetrutaN){
+                        dataRuta[contador]=ruta.getName();
+                        contador+=1;
+                    }
+                    myAdapterruta.setLocalDataSet(dataRuta);
+                }
+
+            }
+
+
+        });
     }
+
 }

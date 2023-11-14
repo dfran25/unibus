@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -22,7 +25,7 @@ public class CrearNotificacionruta extends AppCompatActivity {
 
     Button btn_volveradmin;
     Button btn_addruta;
-    EditText descripcion,ruta;
+    EditText edtNameruta;
 
     private FirebaseFirestore mfirestore;
 
@@ -35,6 +38,8 @@ public class CrearNotificacionruta extends AppCompatActivity {
         mfirestore = FirebaseFirestore.getInstance();
 
         btn_volveradmin = findViewById(R.id.btn_volveradmin);
+
+        edtNameruta = findViewById(R.id.edt_ruta_crear);
         btn_volveradmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,17 +49,28 @@ public class CrearNotificacionruta extends AppCompatActivity {
             }
         });
 
-        descripcion = findViewById(R.id.ruta);
         btn_addruta =findViewById(R.id.btn_addruta);
 
         btn_addruta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String n = descripcion.getText().toString();
+                String n = edtNameruta.getText().toString();
                 if(n.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Ingrese datos", Toast.LENGTH_SHORT).show();
                 }else{
-                    postRuta(n);
+                    Ruta newRuta = new Ruta(n);
+                    mfirestore.collection("rutas").add(newRuta).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(CrearNotificacionruta.this, "CREADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                Log.d("diegoerror", task.getException().toString());
+                            }
+                        }
+                    });
+
                 }
             }
         });

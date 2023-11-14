@@ -20,13 +20,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/texto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Parada" />
 
         <EditText
-            android:id="@+id/parada"
+            android:id="@+id/edt_parada_crear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

@@ -20,21 +20,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="NOTIFICACIONES" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:text="notificacion a crear" />
+            android:text="OPCIONES " />
 
         <Button
             android:id="@+id/btn_notinot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NOTIFI" />
+            android:text="Notificaciones"
+            android:backgroundTint="@android:color/holo_orange_dark"/>
 
         <Button
             android:id="@+id/btn_notiparada"
@@ -56,20 +49,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button6"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_cerrar"
+                android:layout_width="338dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#FF9800"
-                android:text="Eliminar" />
+                android:text="Cerrar cesion" />
 
-            <Button
-                android:id="@+id/btn_volver"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#FF9800"
-                android:text="Volver" />
         </LinearLayout>
     </LinearLayout>
 
