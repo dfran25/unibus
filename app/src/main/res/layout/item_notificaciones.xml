@@ -11,7 +11,7 @@
         android:layout_height="100dp"
         app:cardCornerRadius="40dp"
         app:cardElevation="5dp"
-        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:backgroundTint="#FF9800"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

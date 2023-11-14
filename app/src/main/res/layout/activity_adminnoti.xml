@@ -20,19 +20,24 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="OPCIONES " />
+            android:lineSpacingExtra="12sp"
+            android:text="OPCIONES "
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_notinot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notificaciones"
-            android:backgroundTint="@android:color/holo_orange_dark"/>
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:text="Notificaciones" />
 
         <Button
             android:id="@+id/btn_notiparada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:backgroundTint="#FF9800"
             android:text="Paradas" />
 
@@ -40,6 +45,7 @@
             android:id="@+id/btn_notiruta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:backgroundTint="#FF9800"
             android:text="Rutas" />
 
@@ -52,9 +58,10 @@
                 android:id="@+id/btn_cerrar"
                 android:layout_width="338dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF9800"
-                android:text="Cerrar cesion" />
+                android:text="Cerrar sesión" />
 
         </LinearLayout>
     </LinearLayout>

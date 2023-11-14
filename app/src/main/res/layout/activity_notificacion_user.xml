@@ -13,12 +13,12 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="40dp">
 
-        <Button
+        <ImageButton
             android:id="@+id/button"
             android:layout_width="61dp"
             android:layout_height="wrap_content"
             android:onClick="goBack"
-            android:text="Button" />
+            app:srcCompat="@android:drawable/ic_menu_revert" />
 
         <TextView
             android:id="@+id/tv_item_notification"

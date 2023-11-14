@@ -23,26 +23,33 @@
             android:id="@+id/texto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Parada" />
+            android:text="Parada"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edt_parada_crear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            android:hint="Ingrese parada"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/btn_addparada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#FF9800"
             android:text="Agregar" />
 
         <Button
             android:id="@+id/btn_volveradmin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#FF9800"
             android:text="volver" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

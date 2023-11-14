@@ -12,9 +12,10 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/unibus_sin_fondo"
+            android:layout_marginTop="15dp"
+            app:srcCompat="@drawable/unibus"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="34dp" />
 
@@ -23,6 +24,7 @@
             android:layout_width="411dp"
             android:layout_height="39dp"
             android:layout_margin="5dp"
+            android:layout_marginTop="15dp"
             android:text="Ingrese nombre "
             android:textStyle="bold" />
 
@@ -138,7 +140,7 @@
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF9800"
-                android:text="Inicia sesion" />
+                android:text="Iniciar sesión" />
 
 
         </LinearLayout>

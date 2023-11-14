@@ -23,26 +23,33 @@
             android:id="@+id/texto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ruta" />
+            android:text="ruta"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edt_ruta_crear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            android:hint="Ingrese ruta"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/btn_addruta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#FF9800"
+            android:layout_marginTop="50dp"
             android:text="Agregar" />
 
         <Button
             android:id="@+id/btn_volveradmin"
             android:layout_width="match_parent"
+            android:backgroundTint="#FF9800"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:text="volver" />
     </LinearLayout>
 

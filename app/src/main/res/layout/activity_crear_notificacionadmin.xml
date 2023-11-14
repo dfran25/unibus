@@ -23,26 +23,36 @@
             android:id="@+id/texto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notificacion" />
+            android:text="Notificacion"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edt_notifi_crear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            android:hint="Agrega una notificación"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/btn_addnoti"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Agregar" />
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#FF9800"
+            android:text="Agregar"
+            android:textColorHighlight="#FFC107"
+            android:textColorLink="#FF9800"
+            app:iconTint="#FFF8E1" />
 
         <Button
             android:id="@+id/btn_volveradmin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#FF9800"
             android:text="volver" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
