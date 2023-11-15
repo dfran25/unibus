@@ -107,7 +107,7 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this,"Confirma la contraseña",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (password!=anoher_password){
+                if (!anoher_password.equals(password)){
                     Toast.makeText(Register.this,"Contraseña diferente",Toast.LENGTH_SHORT).show();
                     return;
                 }
