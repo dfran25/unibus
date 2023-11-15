@@ -32,7 +32,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_notificaciones"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="200dp" />
 
         <TextView
             android:id="@+id/textView14"
@@ -46,7 +46,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_parada"
             android:layout_width="match_parent"
-            android:layout_height="204dp" />
+            android:layout_height="200dp" />
 
         <TextView
             android:id="@+id/textView9"
@@ -60,7 +60,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_ruta"
             android:layout_width="match_parent"
-            android:layout_height="223dp"
+            android:layout_height="200dp"
             android:layout_weight="1" />
 
     </LinearLayout>
