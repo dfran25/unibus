@@ -133,7 +133,7 @@ public class NotificacionUserActivity extends AppCompatActivity {
     private void cargarfackedata2() {
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        firestore.collection("ruta").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        firestore.collection("rutas").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()){

@@ -128,8 +128,9 @@
 
             <Button
                 android:id="@+id/btn_register"
-                android:layout_width="100dp"
+                android:layout_width="85dp"
                 android:layout_height="48dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF9800"
                 android:text="Registrar" />
@@ -138,9 +139,10 @@
                 android:id="@+id/logiNow"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF9800"
-                android:text="Iniciar sesión" />
+                android:text="Volver" />
 
 
         </LinearLayout>
